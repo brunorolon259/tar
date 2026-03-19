@@ -1,0 +1,7 @@
+"Escribe un programa que pida al usuario que ingrese una letra del alfabeto y determine si es una vocal o una consonante."
+
+letra=input("Ingrese una letra del alfabeto para determinar si es vocal o consonante: ")
+if letra in 'aeiou':
+    print("La Letra ingresada es una vocal")    
+else:
+    print("La Letra ingresada es una consonante") 
