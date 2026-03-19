@@ -1,0 +1,14 @@
+'''
+Escribe un programa que lea un arreglo de números enteros y luego muestre el elemento mínimo del arreglo.
+'''
+
+vector = []
+
+num= int(input("¿Cuántos numeros quieres ingresar? "))
+
+for i in range(num):
+    num = int(input(f"Ingresa el número {i+1}: "))
+    vector.append(num)
+    maximo = min(vector)
+    
+print(f"El elemento máximo es: {maximo}")
