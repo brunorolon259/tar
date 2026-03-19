@@ -1,0 +1,20 @@
+"Escribe un programa que pida al usuario que adivine un número secreto generado"
+"aleatoriamente. El programa debe dar pistas al usuario diciéndole si el número"
+"ingresado es mayor o menor que el número secreto"
+import random 
+
+num = 0
+numsecreto = random.randint(1, 150)
+
+print("Podras adivinar el numero secreto del 1 al 150?")
+
+while num!= numsecreto:
+    
+    num = int(input("Ingresa tu número: "))
+    
+    if num < numsecreto:
+        print("El numero secreto es mayor al ingresado.")
+        elif num>numsecreto:
+        print("El numero secreto es menor al ingresado.")
+    else:
+        print("Felicitaciones! Adivinaste")
