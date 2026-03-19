@@ -1,0 +1,21 @@
+'''
+Adivina el número: Escribe un programa que genere un número aleatorio entre 1 y 100. El usuario debe adivinar el número y 
+el programa debe decir si el número ingresado es mayor o menor al número generado. El usuario gana cuando adivina el número.
+'''
+import random 
+
+num = 0
+numsecreto = random.randint(1, 101)
+
+print("Podras adivinar el numero secreto del 1 al 100?")
+
+while num!= numsecreto:
+    
+    num = int(input("Ingresa tu número: "))
+    
+    if num < numsecreto:
+        print("El numero secreto es mayor al ingresado.")
+        elif num>numsecreto:
+        print("El numero secreto es menor al ingresado.")
+    else:
+        print("Felicitaciones! Adivinaste")
