@@ -1,0 +1,13 @@
+"Escribe un programa que pida al usuario que ingrese dos números y determine cuál es el número más grande."
+    
+n1=0
+n2=0
+
+n1= int(input("Ingrese el primer numero: "))
+n2= int(input("Ingrese el segundo numero: "))
+if n1 > n2:
+    print("El numero uno es mas grande que el segundo")    
+elif n2 > n1:
+    print("El numero dos es mas grande que el uno")    
+else:
+    print("Son iguales")
