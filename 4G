@@ -1,0 +1,21 @@
+'''
+Piedra, papel o tijeras: Escribe un programa que permita al usuario jugar piedra, papel o tijeras contra el programa. 
+El usuario debe ingresar su elección y el programa debe generar una elección aleatoria. El programa debe determinar quién 
+gana la partida y mostrar el resultado.
+'''
+import random
+opciones =[1, 2, 3]
+
+user=input('Ingrese su numero para jugar: 1 piedra, 2 papel o 3 tijeras: ') 
+bot = random.choice(opciones)
+if (user=="1" and bot=="3")or \
+    (user=="2" and bot=="1")or \
+    (user=="3" and bot=="2"):
+    print(f"Ganaste! Elegiste {user} y el bot {bot}")
+
+        
+elif (user==bot):
+    print("Empate!")
+        
+else:
+    print(f"perdiste!  Elegiste {user} y el bot {bot}")
