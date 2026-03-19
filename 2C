@@ -1,0 +1,8 @@
+"scribe un programa que muestre las tablas de multiplicar del 1 al 10."
+
+for multiplicando in range(1, 11):
+    print(f"____Tabla del {multiplicando}_____")
+    
+    for multiplicador in range(1, 11):
+        resultado = multiplicando * multiplicador
+        print(f"{multiplicando}x{multiplicador}={resultado}")
