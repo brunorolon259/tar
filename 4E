@@ -1,0 +1,16 @@
+'''
+Escribe un programa que lea un arreglo de números enteros y luego muestre cuántos elementos del arreglo son pares.
+'''
+
+vector = []
+pares = 0
+
+num= int(input("¿Cuántos numeros quieres ingresar? "))
+
+for i in range(num):
+    num = int(input(f"Ingresa el número {i+1}: "))
+    vector.append(num)
+    if num%2!= 0:
+        pares=pares+1
+    
+print(f"La cantidad de numeros pares es: {pares}")
