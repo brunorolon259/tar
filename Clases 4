@@ -1,0 +1,46 @@
+''''
+Crea una clase "Rectángulo" con propiedades para la longitud y la anchura, y métodos para calcular el área y el perímetro del 
+rectángulo.
+
+'''''
+num=0
+
+class rectangulo:
+    def __init__(self, longitud, anchura):
+        self.longitud = longitud
+        self.anchura = anchura
+
+def obtener_nombre(self):
+        return self.nombre
+
+    def obtener_edad(self):
+        return self.edad
+
+    def obtener_carrera(self):
+        return self.carrera
+        
+        perimetro = 2* (self.anchura+self.longitud)
+        print(f"El perimetro del rectangulo es: {perimetro}cm")
+        return perimetro
+        
+    def calcular_area(self):
+        anchura = 0
+        longitud= 0
+        
+        area = self.anchura * self.longitud
+        print(f"El area del rectangulo es: {area}cm")
+        return area    
+        
+        
+if __name__ == "__main__":
+
+    rectangulo1 = rectangulo(18,12)
+
+    print(f"anchura: {rectangulo1.obtener_anchura()}")
+    print(f"longitud: {rectangulo1.obtener_longitud()}")
+    num=int(input(f"Pulse 1 si desea calcular el permitro o pulse 2 si desea calcular el aream: "))
+    if num==1:
+        rectangulo1.calcular_perimetro()
+        
+    if num==2:
+        rectangulo1.calcular_area()
