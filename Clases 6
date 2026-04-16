@@ -1,0 +1,76 @@
+''''
+Crea una clase "Estudiante" con propiedades para el nombre, la edad y la carrera, y mC)todos para obtener y establecer estas 
+propiedades, asC- como un mC)todo para calcular la nota media de un conjunto de exC!menes.
+
+'''''
+num=0
+
+class estudiante:
+    def __init__(self, nombre, edad, carrera):
+        self.nombre = nombre
+        self.edad = edad
+        self.carrera = carrera
+
+    def obtener_nombre(self):
+        return self.nombre
+
+    def obtener_edad(self):
+        return self.edad
+
+    def obtener_carrera(self):
+        return self.carrera
+
+    def calcular_nota_media(self):
+        nota1=0
+        nota2=0
+        nota3=0
+        nota4=0
+        promedio=0
+    
+        nota1= int(input("Ingrese la nota del primer examen "))
+        nota2= int(input("Ingrese la nota del segundo examen "))
+        nota3= int(input("Ingrese la nota del tercer examen "))
+        nota4= int(input("Ingrese la nota del cuarto examen "))
+    
+        promedio = nota1+nota2+nota3+nota4 / 4
+    
+        print(f"El promedio de los examenes del estudiante es igual a {promedio}")
+    
+    def establecer_nombre(self, nuevo_nombre):
+        self.nombre = nuevo_nombre
+
+    def establecer_edad(self, nueva_edad):
+        if nueva_edad > 0:
+            self.edad = nueva_edad
+        else:
+            print("Error: La edad debe ser un número positivo.")
+
+    def establecer_carrera(self, nueva_carrera):
+        self.carrera = nueva_carrera    
+        
+if __name__ == "__main__":
+
+    estudiante1 = estudiante("Bruno Rolon",17,"Computacion")
+    
+    num=int(input(f"Pulse 1 si quiere ver la lista de alumnos/pulse 2 para ingresar un alumno/pulse 3 para calcular la nota: "))
+    
+    if num==1:
+        print(f"Estudiante: {estudiante1.obtener_nombre()}")
+        print(f"Carrera: {estudiante1.obtener_carrera()}")
+        print(f"Edad: {estudiante1.obtener_edad()}")
+    
+    if num==2:
+        nuevo_nombre = input("Introduce el nombre: ")
+        estudiante1.establecer_nombre(nuevo_nombre)
+        print(f"carrera registrada: {estudiante1.obtener_nombre()}")
+        
+        nueva_carrera = input("Introduce la carrera del estudiante: ")
+        estudiante1.establecer_carrera(nueva_carrera)
+        print(f"carrera registrada: {estudiante1.obtener_carrera()}")
+        
+        nueva_edad = input("Introduce la Edad del estudiante: ")
+        estudiante1.establecer_edad(nueva_edad)
+        print(f"Edad registrada: {estudiante1.obtener_carrera()}")
+    
+    if num==3:
+        estudiante1.calcular_nota_media()
