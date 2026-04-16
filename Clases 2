@@ -1,0 +1,38 @@
+''''
+Crea una clase "Coche" con propiedades para la marca, el modelo y el año de fabricación,
+y un método para obtener el número de años que ha pasado desde que se fabricó el coche
+'''''
+
+
+class Coche:
+    def __init__(self, marca, modelo, anio):
+        self.marca = marca   # Establece el nombre
+        self.modelo = modelo # Establece la edad
+        self.anio = anio  # Establece la altura
+
+    def obtener_marca(self):
+        """Devuelve el nombre de la persona."""
+        return self.marca
+
+    def obtener_modelo(self):
+        """Devuelve la edad de la persona."""
+        return self.modelo
+
+    def obtener_anio(self):
+        """Devuelve la altura de la persona."""
+        return self.anio
+        
+    def anio_fabricacion(self):
+        antiguedad = 2026-self.anio
+        return antiguedad
+
+# Ejemplo de uso de la clase Persona
+if __name__ == "__main__":
+    # Crear una instancia de Persona
+    coche1 = Coche("Chevrolet", "Cruze", 2017)
+
+    # Obtener y mostrar las propiedades
+    print(f"Marca: {coche1.obtener_marca()}")
+    print(f"Modelo: {coche1.obtener_modelo()}")
+    print(f"Anio: {coche1.obtener_anio()}")
+    print(f"El coche tiene {coche1.anio_fabricacion()} años de antigüedad.")
