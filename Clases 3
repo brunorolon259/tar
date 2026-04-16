@@ -1,0 +1,37 @@
+class rectangulo:
+    def __init__(self, longitud, anchura):
+        self.longitud = longitud
+        self.anchura = anchura
+
+    def obtener_anchura(self):
+        return self.anchura
+
+    def obtener_longitud(self):
+        return self.longitud
+
+    def calcular_perimetro(self):
+        anchura = 0
+        longitud= 0
+        
+        perimetro = longitud 2*(anchura, longitud)
+        
+        return perimetro
+        
+    def calcular_perimetro(self):
+        anchura = 0
+        longitud= 0
+        
+        perimetro = longitud 2*(anchura, longitud)
+        
+        return perimetro    
+        
+        
+if __name__ == "__main__":
+
+    rectangulo1 = Rectangulo("Chocolate Milka", "$2500", 60)
+
+    print(f"Rectangulo: {rectangulo1.obtener_anchura()}")
+    print(f"Rectangulo: {rectangulo1.obtener_longitud()}")
+    int(input(f"Pulse 1 si desea calcular el permitro o pulse 2 si desea calcular el aream: "))
+    producto1.modificar_stock()
+    print(f"Stock actualizado: {producto1.obtener_stock()}")
