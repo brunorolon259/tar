@@ -1,0 +1,38 @@
+'''
+Crea una clase "Círculo" con propiedades para el radio y el diámetro, y métodos para calcular el área y la circunferencia del círculo.
+'''
+num=0
+class circulo:
+    def __init__(self, radio, diametro):
+        self.radio = radio
+        self.diametro = diametro
+
+    def obtener_radio(self):
+        return self.radio
+
+    def obtener_diametro(self):
+        return self.diametro
+
+    def calcular_area(self):
+        area = 3.14 * self.radio** 2
+        print(f"El area del circulo es: {area}cm")
+        return area
+        
+    def calcular_circunferencia(self):
+        circunferencia = 3.14 * self.diametro
+        print(f"La circunferencia del circulo es: {circunferencia}cm")
+        return circunferencia    
+        
+        
+if __name__ == "__main__":
+
+    circulo1 = circulo(15,30)
+
+    print(f"radio: {circulo1.obtener_radio()}")
+    print(f"diametro: {circulo1.obtener_diametro()}")
+    num=int(input(f"Pulse 1 si desea calcular el area o pulse 2 si desea calcular el diametro: "))
+    if num==1:
+        circulo1.calcular_area()
+        
+    if num==2:
+        circulo1.calcular_circunferencia()
