@@ -1,0 +1,39 @@
+
+'''
+Crea una clase llamada Libro con atributos titulo, autor y año_publicacion. Implementa un método que 
+devuelva una descripción del libro y otro que verifique si el libro es considerado un clásico 
+(publicado hace más de 50 años).
+'''
+num=0
+anio=0
+
+class libro:
+    def __init__(self, titulo, autor, anio_publicacion):
+        self.titulo = titulo
+        self.autor = autor
+        self.anio_publicacion = anio_publicacion
+
+    def mostrar_informacion(self):
+        return f"Titulo: {self.titulo}, Autor: {self.autor}, Año: {self.anio_publicacion}"
+    
+    def clasico(self):
+        anio=2026-self.anio_publicacion
+        if anio >= 50:
+            return(f"El libro es un clasico! Ya tiene {anio} años")
+        else:
+            return("El libro no es un clasico")
+                
+            
+if __name__ == "__main__":
+    libro1 = libro("Don Quijote de la Manche", "Miguel Cervantes", 1605)
+    
+    num=int(input(f"Pulse 1 si quiere ver la información/pulse 2 si quiere verificar si es un clasico: "))
+        
+    if num==1:
+        print(libro1.mostrar_informacion())
+    
+    elif num==2:
+        print(libro1.clasico())
+            
+
+    
