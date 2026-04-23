@@ -1,0 +1,57 @@
+'''
+Crea una clase llamada CuentaBancaria que tenga atributos como titular, saldo y numero_cuenta.
+Implementa métodos para depositar y retirar dinero, asegurándote de que el saldo no se vuelva negativo.
+
+'''
+num=0
+
+class cuentabancaria:
+    def __init__(self, titular, saldo, numero_cuenta):
+        self.titular = titular
+        self.saldo = saldo
+        self.numero_cuenta = numero_cuenta
+
+    def mostrar_informacion(self):
+        return f"cuentabancaria: {self.titular}, Saldo: {self.saldo}, Numero_cuenta {self.numero_cuenta}"
+    
+    def depositar(self, monto):
+        monto = int(monto)
+        if monto > 0:
+            self.saldo += monto
+            print(f"Depósito exitoso. Su saldo ahora es de: ${self.saldo}")
+        else:
+            print("Error: El monto a depositar debe ser positivo.")
+            
+    def retirar(self, monto):
+        monto = int(monto)
+        if monto <= 0:
+            print("Error: El monto a retirar debe ser positivo.")
+        elif monto>self.saldo:
+            ("Error, fondos insuficientes.")
+        else:
+            self.saldo -= monto
+            print(f"Retiro exitoso. Su saldo ahora es de: ${self.saldo}")
+                
+            
+if __name__ == "__main__":
+    cuentabancaria1 = cuentabancaria("Bruno Valentin Rolon", 187000, 12580)
+    
+    while True:
+        num=int(input(f"Pulse 1 si quiere ver la información/pulse 2 para depositar/pulse 3 para retirar o otro numero para salir: "))
+        
+        if num==1:
+            print(cuentabancaria1.mostrar_informacion())
+    
+        elif num==2:
+            monto = input("Introduce el monto a depositar: ")
+            cuentabancaria1.depositar(monto)
+            print(cuentabancaria1.mostrar_informacion())
+            
+        elif num==3:
+            monto = input("Introduce el monto a retirar: ")
+            cuentabancaria1.retirar(monto)
+            print(cuentabancaria1.mostrar_informacion())
+    
+        else:
+            print("Gracias por usar el gestor de banco")
+            break
