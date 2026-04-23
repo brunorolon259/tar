@@ -1,0 +1,38 @@
+'''
+Crea una clase llamada Libro con atributos titulo, autor y año_publicacion. Implementa un método que 
+devuelva una descripción del libro y otro que verifique si el libro es considerado un clásico 
+(publicado hace más de 50 años).
+
+
+'''
+num=0
+
+class persona:
+    def __init__(self, nombre, edad, sexo):
+        self.nombre = nombre
+        self.edad = edad
+        self.sexo = sexo
+
+    def mostrar_informacion(self):
+        return f"Persona: {self.nombre},Edad: {self.edad}, {self.sexo}"
+    
+    def establecer_edad(self, nueva_edad):
+        nueva_edad = int(nueva_edad)
+        if nueva_edad > 0:
+        else:
+            print("Error: La edad debe ser un número positivo.")
+            
+            
+if __name__ == "__main__":
+    persona1 = persona("Bruno", 17, "Masculino")
+    
+
+    num=int(input(f"Pulse 1 si quiere ver la información/pulse 2 para modificar la edad "))
+    
+    if num==1:
+        print(persona1.mostrar_informacion())
+
+    if num==2:
+        nueva_edad = input("Introduce la Edad: ")
+        persona1.establecer_edad(nueva_edad)
+        print(persona1.mostrar_informacion())
