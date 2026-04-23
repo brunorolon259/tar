@@ -1,0 +1,29 @@
+'''
+Crea una clase llamada Juego que tenga atributos nombre, género y precio. Implementa 
+un método que muestre la información del juego y otro que verifique si el juego está
+en oferta (si el precio es menor a un valor dado).
+
+
+'''
+class juego:
+    def __init__(self, nombre, genero, precio):
+        self.nombre = nombre
+        self.genero = genero
+        self.precio = precio
+
+    def mostrar_informacion(self):
+        return f"Juego : {self.nombre}, Autor: {self.genero}, Año: {self.precio}"
+    
+    def oferta(self):
+        if self.precio >= 20000:
+            return(f"El juego no esta en oferta")
+        else:
+            return("El juego esta en oferta!")
+                
+            
+if __name__ == "__main__":
+    juego1 = juego("Gran Turismo 7", "Simulacion de carreras", 18500)
+        
+    print(juego1.mostrar_informacion())
+    print(juego1.oferta())
+            
