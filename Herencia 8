@@ -1,0 +1,65 @@
+'''
+
+Crea una clase base Transporte con propiedades de capacidad y velocidad máxima. Deriva clases 
+como Avión y Barco,e implementa métodos para calcular el tiempo de viaje basado en la distancia y la velocidad.
+
+'''
+class Transporte:
+    def __init__(self, nombre, capacidad, velmax):
+        self.nombre = nombre
+        self.capacidad = capacidad
+        self.velmax = velmax  # Velocidad máxima en km/h
+    
+    def imprimir_detalles(self):
+        print(f"Nombre: {self.nombre}")
+        print(f"Capacidad: {self.capacidad} pasajeros")
+        print(f"Velocidad Máxima: {self.velmax} km/h")
+        
+    def calcular_viaje(self, distancia):
+        """Calcula el tiempo estimado de viaje en horas."""
+        if self.velmax <= 0:
+            return 0
+        tiempo = distancia / self.velmax
+        return tiempo
+
+
+class Avion(Transporte):
+    def __init__(self, nombre, capacidad, velmax):
+        # Pasamos los parámetros correctos a la clase base
+        super().__init__(nombre, capacidad, velmax)
+    
+    def calcular_viaje(self, distancia):
+        tiempo = super().calcular_viaje(distancia)
+        print(f"El avión {self.nombre} tardará aproximadamente {tiempo:.2f} horas en recorrer {distancia} km.")
+        return tiempo
+
+
+class Barco(Transporte):
+    def __init__(self, nombre, capacidad, velmax):
+        super().__init__(nombre, capacidad, velmax)
+
+    def calcular_viaje(self, distancia):
+        tiempo = super().calcular_viaje(distancia)
+        print(f"El barco {self.nombre} tardará aproximadamente {tiempo:.2f} horas en recorrer {distancia} km.")
+        return tiempo
+
+
+# Ejemplo de uso:
+if __name__ == "__main__":
+    # Crear instancias
+    avion = Avion("Boeing 737", 100, 830)
+    barco = Barco("MSC Meraviglia", 130, 46)
+    
+    # Distancia de prueba: 2000 km
+    distancia_viaje = 2000
+    
+    print("--- DETALLES Y VIAJE DEL AVIÓN ---")
+    avion.imprimir_detalles()
+    avion.calcular_viaje(distancia_viaje)
+    
+    print("\n-----------------------------------\n")
+    
+    print("--- DETALLES Y VIAJE DEL BARCO ---")
+    barco.imprimir_detalles()
+    barco.calcular_viaje(distancia_viaje)
+
