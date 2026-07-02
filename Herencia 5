@@ -1,0 +1,77 @@
+'''
+Crea una clase Producto con propiedades nombre, precio y fecha de vencimiento. 
+Deriva clases como ProductoAlimenticio y ProductoElectrónico, y añade métodos para 
+aplicar descuentos basados en la fecha actual y en ciertas condiciones.
+'''
+
+
+
+class Producto:
+    def __init__(self, nombre, precio, mesvenc):
+        self.nombre= nombre
+        self.precio = precio
+        self.mesvenc = mesvenc
+    
+    def imprimir_detalles(self):
+        print(f"Nombre: {self.nombre}")
+        print(f"Precio: ${self.precio:,.2f}")
+        print(f"Mes de vencimiento: {self.mesvenc}")
+        
+
+class ProductoAlimenticio(Producto):
+    def __init__(self, nombre, precio, mesvenc, nrolote,):
+        super().__init__(nombre, precio, mesvenc) 
+        self.nrolote = nrolote
+        
+    def calcular_descuento(self):
+        mes_actual = datetime.now().month
+        
+        if self.mesvenc <= mes_actual:
+            return self.precio * 0.50
+        elif self.mesvenc == mes_actual + 1:
+            return self.precio * 0.20
+        return 0.0
+        
+    def imprimir_detalles(self):
+        super().imprimir_detalles()
+        print(f"Nombre del producto: {self.nombre}")
+        print(f"Precio: ${self.precio:}")
+        print(f"Mes de vencimiento: {self.mesvenc:}:")
+        print(f"Numero de Lote: {self.nrolote:}")
+
+
+class ProductoElectrónico(Producto):
+    def __init__(self, nombre, precio, mesvenc, meses_garantia):
+        super().__init__(nombre, precio, mesvenc)
+        self.meses_garantia = meses_garantia
+    
+    def calcular_descuento(self):
+        """
+        Si el producto tiene más de 12 meses de garantía, se le aplica 
+        un 10% de descuento de fábrica como promoción.
+        """
+        if self.meses_garantia > 12:
+            return self.precio * 0.10
+        return 0.0
+    
+    def imprimir_detalles(self):
+        super().imprimir_detalles()
+        print(f"Garantía: {self.meses_garantia} meses")
+        
+        descuento = self.calcular_descuento()
+        precio_final = self.precio - descuento
+        
+        print(f"Descuento Promocional: ${descuento:,.2f}")
+        print(f"Precio Final: ${precio_final:,.2f}")
+    
+
+if __name__ == "__main__":
+    print("--- DETALLES DEL PRODUCTO ALIMENTICIO ---")
+    pa = ProductoAlimenticio("Papas Lays", 2400.00, 6, "LOTE-9982") 
+    pa.imprimir_detalles()
+    
+    print("\n" + "-"*40 + "\n")
+
+    print("--- DETALLES DEL PRODUCTO ELECTRÓNICO ---")
+    pe = ProductoElectrónico("Grand Theft Auto 6", 120000.00, 12, 24)
+    pe.imprimir_detalles()
