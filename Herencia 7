@@ -1,0 +1,45 @@
+'''
+
+Define una clase Instrumento con propiedades nombre y material. Crea clases derivadas como 
+Guitarra y Piano, agregando métodos para tocar notas musicales y un método en la clase base 
+para indicar el tipo de sonido.
+'''
+class Instrumento:
+    def __init__(self, nombre, material):
+        self.nombre = nombre
+        self.material = material
+
+    def emitir_sonido(self):
+        print(f"El instrumento {self.nombre} (hecho de {self.material}) está emitiendo la onda sonora:")
+
+
+class Guitarra(Instrumento):
+    def __init__(self, nombre, material, num_cuerdas):
+        super().__init__(nombre, material)
+        self.num_cuerdas = num_cuerdas
+
+    def tocar_nota(self, nota):
+        print(f"Sonido: {nota.upper()}.")
+
+
+class Piano(Instrumento):
+    def __init__(self, nombre, material, num_teclas):
+        super().__init__(nombre, material)
+        self.num_teclas = num_teclas
+
+    def tocar_nota(self, nota):
+        print(f"Sonido: {nota.upper()}.")
+
+
+if __name__ == "__main__":
+    print("--- Probando la Guitarra ---")
+    mi_guitarra = Guitarra("Fender Stratocaster", "Madera de Aliso", 6)
+    mi_guitarra.emitir_sonido()
+    mi_guitarra.tocar_nota("Do")
+    mi_guitarra.tocar_nota("Sol")
+
+    print("\n--- Probando el Piano ---")
+    mi_piano = Piano("Steinway & Sons", "Madera de Ébano y Marfil", 88)
+    mi_piano.emitir_sonido()
+    mi_piano.tocar_nota("Mi")
+    mi_piano.tocar_nota("La")
