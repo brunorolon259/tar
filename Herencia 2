@@ -1,0 +1,62 @@
+'''
+Crea una clase Empleado con propiedades nombre, salario y cargo. Deriva clases como Gerente 
+y EmpleadoTemporal, añadiendo un método en cada una que calcule el aumento de salario basado
+en ciertos criterios.
+'''
+
+class Empleado:
+    def __init__(self, nombre, salario, cargo):
+        self.nombre = nombre
+        self.salario = salario
+        self.cargo = cargo
+    
+    def imprimir_detalles(self):
+        print(f"Nombre: {self.nombre}")
+        print(f"Salario Base: ${self.salario:,.2f}")
+        print(f"Cargo: {self.cargo}")
+        
+
+class Gerente(Empleado):  # <-- Corregido: Hereda de Empleado
+    def __init__(self, nombre, salario, horastrabajo, personas_a_cargo):
+        # Pasamos el cargo fijo como "Gerente" a la clase base
+        super().__init__(nombre, salario, "Gerente") 
+        self.horastrabajo = horastrabajo  # <-- Corregido: Guardamos la propiedad
+        self.personas_a_cargo = personas_a_cargo
+        
+    def calcular_aumento(self):
+        porcentaje_aumento = 0.10 + (self.personas_a_cargo * 0.01) + (self.horastrabajo * 0.01)
+        return self.salario * porcentaje_aumento
+    
+    def imprimir_detalles(self):
+        super().imprimir_detalles()
+        print(f"Horas de trabajo: {self.horastrabajo}")
+        print(f"Personas a cargo: {self.personas_a_cargo}")
+        print(f"Aumento calculado: ${self.calcular_aumento():,.2f}")
+        print(f"Salario Total: ${self.salario + self.calcular_aumento():,.2f}")
+
+
+class EmpleadoTemporal(Empleado):
+    def __init__(self, nombre, salario, meses_contrato):
+        # Pasamos el cargo fijo como "Temporal" a la clase base
+        super().__init__(nombre, salario, "Temporal")
+        self.meses_contrato = meses_contrato  # <-- Corregido: Guardamos la propiedad
+    
+    def calcular_aumento(self):
+        return self.meses_contrato * 50000.0
+    
+    def imprimir_detalles(self):
+        super().imprimir_detalles()
+        print(f"Duración del contrato: {self.meses_contrato} meses")
+        print(f"Aumento calculado: ${self.calcular_aumento():,.2f}")
+        print(f"Salario Total: ${self.salario + self.calcular_aumento():,.2f}")
+    
+
+# Ejemplo de uso:
+if __name__ == "__main__":
+    # Corregido: Números sin puntos para evitar que se lean como decimales bajos
+    g = Gerente("Bruno Rolón", 600000, 10, 15) 
+    g.imprimir_detalles()
+    print("-" * 30)
+
+    et = EmpleadoTemporal("Valentino Gonzalez", 250000, 7)
+    et.imprimir_detalles()
