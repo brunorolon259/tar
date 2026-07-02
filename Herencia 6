@@ -1,0 +1,53 @@
+'''
+Diseña una jerarquía de clases que incluya Persona y clases derivadas como Estudiante 
+y Profesor. Implementa métodos para asignar roles y mostrar información específica
+de cada rol, junto con un método en la clase base para mostrar información personal.
+'''
+class Persona:
+    def __init__(self, nombre, edad, dni, genero, curso):
+        self.nombre = nombre
+        self.edad = edad
+        self.dni = dni
+        self.genero = genero
+        self.curso = curso
+    
+    def imprimir_detalles(self):
+        print(f"Nombre: {self.nombre}")
+        print(f"Edad: {self.edad}")
+        print(f"DNI: {self.dni}")
+        print(f"Género: {self.genero}")
+        print(f"Curso: {self.curso}")
+
+
+class Estudiante(Persona):
+    def __init__(self, nombre, edad, dni, genero, curso, trabajosaprov, trabajosdesap):
+        super().__init__(nombre, edad, dni, genero, curso) 
+        self.trabajosdesap = trabajosdesap
+        self.trabajosaprov = trabajosaprov
+        
+    def calcular_nota(self, nota_base):
+        nota_final = nota_base + (self.trabajosaprov * 2) - (self.trabajosdesap * 2)
+        return max(0, min(nota_final, 10))
+        
+    def imprimir_detalles(self):
+        super().imprimir_detalles()
+        print(f"Trabajos Aprobados: {self.trabajosaprov}")
+        print(f"Trabajos Desaprobados: {self.trabajosdesap}")
+        nota_base_ejemplo = 6
+        nota_final = self.calcular_nota(nota_base_ejemplo)
+        print(f"Nota Final (Base {nota_base_ejemplo}): {nota_final}")
+
+
+class Profesor(Persona):
+    def __init__(self, nombre, edad, dni, genero, curso):
+        super().__init__(nombre, edad, dni, genero, curso)
+
+
+if __name__ == "__main__":
+    print("--- DATOS DEL ALUMNO ---")
+    alumno = Estudiante("Bruno Rolón", 17, 49091259, "Masculino", "5/5", 5, 1) 
+    alumno.imprimir_detalles()
+    
+    print("\n--- DATOS DEL PROFESOR ---")
+    profesor = Profesor("Geronimo Gonzalez", 55, 20000000, "Masculino", "5/5")
+    profesor.imprimir_detalles()
